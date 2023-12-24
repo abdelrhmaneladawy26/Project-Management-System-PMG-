@@ -69,3 +69,11 @@
   margin: 10px auto;
   cursor: pointer;
 }
+
+.navUserData {
+  line-height: 0.4;
+}
+.navUserData span {
+  font-size: 10px;
+  color: #ddd;
+}
