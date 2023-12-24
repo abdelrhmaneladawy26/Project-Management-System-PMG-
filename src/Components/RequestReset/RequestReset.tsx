@@ -1,3 +1,66 @@
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Context/AuthContext";
+import { useContext } from "react";
+
+type Inputs = {
+  email: string;
+  password: string;
+};
 export default function RequestReset() {
-  return <div>RequestReset</div>;
+  const { baseUrl }: any = useContext(AuthContext);
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+  const onSubmit = (data) => {
+    axios
+      .post(`${baseUrl}/Users/Reset/Request`, data)
+      .then((res) => {
+        toast.success("Mail Sent successfully");
+        navigate("/reset-password");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.message);
+      });
+  };
+  return (
+    <>
+      <div className="form-wrapper w-100">
+        <div className="mb-3">
+          <span>welcome to PMS</span>
+          <h3>Forget Password</h3>
+        </div>
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-group my-3">
+            <label htmlFor="E-mail" className="my-2">
+              E-mail
+            </label>
+            <input
+              type="email"
+              className=" form-control "
+              id="E-mail"
+              placeholder="Enter Your E-mail"
+              {...register("email", {
+                required: true,
+                pattern: /^[^@]+@[^@]+\.[^@ .]{2,}$/,
+              })}
+            />
+            {errors.email && errors.email.type === "required" && (
+              <span className="text-danger">email is required</span>
+            )}
+            {errors.email && errors.email.type === "pattern" && (
+              <span className="text-danger">invalid email</span>
+            )}
+          </div>
+          <button className="btn btn-auth d-block mt-5 w-100 ">Verify</button>
+        </form>
+      </div>
+    </>
+  );
 }

@@ -11,7 +11,7 @@ type Inputs = {
 };
 
 export default function Login() {
-  const { baseUrl, saveUserData }:any = useContext(AuthContext);
+  const { baseUrl, saveUserData }: any = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -29,7 +29,7 @@ export default function Login() {
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.message);
+        toast.error(err.response.data.message);
       });
   };
   return (
@@ -82,7 +82,7 @@ export default function Login() {
             <Link className="btn text-white" to="/register">
               Register Now ?
             </Link>
-            <Link className="btn text-white" to="/reset-password">
+            <Link className="btn text-white" to="/request-reset">
               Forget Password ?
             </Link>
           </div>
