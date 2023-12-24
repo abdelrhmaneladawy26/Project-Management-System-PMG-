@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+
 export default function SideBar() {
-  return <div>SideBar</div>;
+  const { userRole } = useContext(AuthContext);
+  return <div>SideBar {userRole}</div>;
 }
