@@ -46,3 +46,26 @@
   color: #fff;
   border: 1px solid #ef9b28;
 }
+/* Sidebar  */
+.sidebar-container {
+  background-color: rgba(49, 89, 81, 0.9);
+}
+.sidebar-container .ps-sidebar-container {
+  background-color: rgba(49, 89, 81, 0.9);
+  height: 100vh;
+  color: #fff;
+}
+.ps-sidebar-root {
+  border: none !important;
+}
+
+.sidebar-container .ps-sidebar-container .ps-menu-button:hover {
+  background-color: #0092471a;
+}
+.sidebar-arrow {
+  background-color: #ef9b28;
+  text-align: center;
+  width: 30%;
+  margin: 10px auto;
+  cursor: pointer;
+}
