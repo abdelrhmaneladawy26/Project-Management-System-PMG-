@@ -1,0 +1,48 @@
+.auth-container {
+  background-image: url(/src/assets/images/bg3.png);
+  background-position: center;
+  background-size: cover;
+}
+.auth-wrapper {
+  background-color: rgba(49, 89, 81, 0.9);
+  padding: 50px;
+  border-radius: 10px;
+}
+.form-wrapper span {
+  color: #fff;
+  font-size: 13px;
+}
+.form-wrapper h3 {
+  color: #ef9b28;
+  position: relative;
+}
+.form-wrapper h3::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 2%;
+  left: 0;
+  bottom: -2px;
+  background-color: #ef9b28;
+}
+.form-wrapper label {
+  color: #ef9b28;
+}
+.form-wrapper input {
+  border: none;
+  background-color: inherit;
+  border-bottom: 2px solid #fff;
+}
+.form-wrapper input::placeholder {
+  color: #fff;
+}
+.btn-auth {
+  background-color: #ef9b28;
+  color: #fff;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.btn-auth:hover {
+  color: #fff;
+  border: 1px solid #ef9b28;
+}
