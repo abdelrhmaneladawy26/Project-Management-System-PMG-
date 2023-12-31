@@ -21,9 +21,15 @@ export default function SideBar() {
     <div>
       <Sidebar collapsed={isCollapsed}>
         <Menu>
-          <div className="sidebar-arrow rounded-4 " onClick={handleToggle}>
-            <li className="fa fa-arrow-right "></li>
-          </div>
+          {isCollapsed ? (
+            <div className="sidebar-arrow rounded-4 " onClick={handleToggle}>
+              <li className="fa fa-arrow-right "></li>
+            </div>
+          ) : (
+            <div className="sidebar-arrow rounded-4 " onClick={handleToggle}>
+              <li className="fa fa-arrow-left "></li>
+            </div>
+          )}
           <MenuItem
             icon={<i className="fa fa-home"></i>}
             component={<Link to="/dashboard" />}
@@ -42,14 +48,14 @@ export default function SideBar() {
             ""
           )}
           <MenuItem
-            icon={<i className="fa-solid fa-table-list"></i>}
+            icon={<i className="fa-solid fa-project-diagram"></i>}
             component={<Link to="/dashboard/projects" />}
           >
             {" "}
             Projects
           </MenuItem>
           <MenuItem
-            icon={<i className="fa-solid fa-table-list"></i>}
+            icon={<i className="fa-solid fa-tasks"></i>}
             component={<Link to="/dashboard/tasks" />}
           >
             {" "}

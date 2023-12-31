@@ -1,3 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 export default function Tasks() {
-  return <div>Tasks</div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 }

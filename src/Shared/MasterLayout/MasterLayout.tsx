@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 
 export default function MasterLayout() {
   return (
-    <div>
+    <div className="master-layout">
       <NavBar />
       <div className="d-flex  gap-4">
         <div className="sidebar-container ">

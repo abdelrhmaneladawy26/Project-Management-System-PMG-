@@ -18,8 +18,16 @@ import AuthLayout from "./Shared/AuthLayout/AuthLayout";
 import MasterLayout from "./Shared/MasterLayout/MasterLayout";
 import NotFound from "./Shared/NotFound/NotFound";
 import ProtectedRoute from "./Shared/ProtectedRoute/ProtectedRoute";
+import AddProject from "./Components/AddProject/AddProject";
+import ProjectsList from "./Components/ProjectsList/ProjectsList";
+import UpdateProject from "./Components/UpdateProject/UpdateProject";
+import TasksList from "./Components/TasksList/TasksList";
+import AddTask from "./Components/AddTask/AddTask";
+import { useContext } from "react";
+import { AuthContext } from "./Context/AuthContext";
 
 function App() {
+  const { userRole } = useContext(AuthContext);
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -44,9 +52,27 @@ function App() {
       errorElement: <NotFound />,
       children: [
         { index: true, element: <Dashboard /> },
-        { path: "tasks", element: <Tasks /> },
-        { path: "projects", element: <Projects /> },
-        { path: "users", element: <Users /> },
+        {
+          path: "tasks",
+          element: <Tasks />,
+          children: [
+            { index: true, element: <TasksList /> },
+            { path: "addTask", element: <AddTask /> },
+          ],
+        },
+        {
+          path: "projects",
+          element: <Projects />,
+          children: [
+            { index: true, element: <ProjectsList /> },
+            { path: "addProject", element: <AddProject /> },
+            { path: "updateProject", element: <UpdateProject /> },
+          ],
+        },
+        {
+          path: "users",
+          element: userRole == "Manager" ? <Users /> : <Dashboard />,
+        },
       ],
     },
   ]);

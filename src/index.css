@@ -1,3 +1,6 @@
+.master-layout {
+  background-color: #f5f5f5;
+}
 .auth-container {
   background-image: url(/src/assets/images/bg3.png);
   background-position: center;
@@ -36,7 +39,8 @@
 .form-wrapper input::placeholder {
   color: #fff;
 }
-.btn-auth {
+.btn-auth,
+.btn {
   background-color: #ef9b28;
   color: #fff;
   font-size: 20px;
@@ -61,6 +65,8 @@
 
 .sidebar-container .ps-sidebar-container .ps-menu-button:hover {
   background-color: #0092471a;
+  color: #ef9b28;
+  transition: 0.3s ease-in-out;
 }
 .sidebar-arrow {
   background-color: #ef9b28;
@@ -74,6 +80,6 @@
   line-height: 0.4;
 }
 .navUserData span {
-  font-size: 10px;
+  font-size: 13px;
   color: #ddd;
 }
